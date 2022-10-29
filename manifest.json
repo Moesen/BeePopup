@@ -5,18 +5,15 @@
 
     "description": "Adds a popup that shows how many of each 2-word beginning is missing",
     "homepage_url": "https://github.com/moesen/BeePopup",
-
-
     "icons": {
-        "48": "icons/48honeycomb.png",
-        "96": "icons/96honeycomb.png"
+        "48": "icons/logo48.png",
+        "96": "icons/logo96.png"
     },
-
-    "content_scripts": [
-        {
-            "matches": ["https://www.nytimes.com/puzzles/spelling-bee"],
-            "js": ["overlay.js"]
-        }
-    ]
+    "permissions": ["activeTab"],
+    "browser_action": {
+        "default_icon": "icons/logo48.png",
+        "default_title": "BeePopup",
+        "default_popup": "popup/list_words.html"
+    }
 }
 

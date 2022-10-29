@@ -1,4 +1,8 @@
 //Fields
+const hint_url = document
+    .getElementsByClassName(hints_class)[0]
+    .getAttribute("href")
+
 const mainpage_id = "js-hook-game-wrapper";
 const hints_class = "pz-toolbar-button pz-toolbar-button__hints";
 const xPaths = {
@@ -12,11 +16,6 @@ const letters = Array
 
 let hints = {}
 let wordlengths = []
-
-let hint_url = document
-    .getElementsByClassName(hints_class)[0]
-    .getAttribute("href")
-
 fetch(hint_url)
     .then(function (response) {
         switch (response.status) {
@@ -67,16 +66,4 @@ fetch(hint_url)
                         .map(el => parseInt(el) ? parseInt(el) : 0)
                 }
             });
-    })
-    .then(_ => {
-        let InfoTable = document.getElementById("BeeOverlayTable")
-        if (!InfoTable){
-            InfoTable = document.createElement("div")
-            InfoTable.id = "BeeOverlayTable"
-            document.getElementById(mainpage_id).appendChild(InfoTable)
-        }
-    })
-
-
-mainpage.appendChild(tablediv)
-// console.log(tablediv);
+    });
